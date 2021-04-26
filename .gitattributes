@@ -5,7 +5,7 @@
 *.java   text diff=java
 *.html   text diff=html
 *.css    text
-*.js     text
+*.js     text eol=lf
 *.sql    text
 
 *.csproj text merge=union

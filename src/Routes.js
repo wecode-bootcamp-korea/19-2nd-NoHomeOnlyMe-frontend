@@ -5,9 +5,7 @@ export default class Routes extends Component {
   render() {
     return (
       <Router>
-        <Switch>
-          {/* <Route exact path="/" component={Main} /> */}
-        </Switch>
+        <Switch>{/* <Route exact path="/" component={Main} /> */}</Switch>
       </Router>
     );
   }
