@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function Login() {
+function Login({ changeType, changeModalOpen }) {
   const [form, setForm] = useState({ id: '', pw: '' });
 
   const inputHandler = e => {
@@ -24,63 +24,51 @@ function Login() {
   };
 
   return (
-    <Container>
-      <ModalBackground>
-        <LoginBox>
-          <UpBox>
-            <XIcon className="fas fa-times" />
-            <Title>로그인</Title>
-            <Input
-              name="id"
-              type="text"
-              onClick={inputHandler}
-              placeholder="아이디"
-            />
-            <Input
-              onClick={inputHandler}
-              name="pw"
-              type="password"
-              placeholder="비밀번호"
-            />
-            <IdSelect>
-              <span>
-                <Label>
-                  <input type="checkbox" name="idSave" />
-                  아이디 저장
-                </Label>
-              </span>
-              <ReSettingPw>비밀번호 재설정</ReSettingPw>
-            </IdSelect>
-            <DefaultLogin onClick={() => loginFetch()}>로그인</DefaultLogin>
-            <SocialLogin>
-              <Kakao>카카오톡으로 시작</Kakao>
-              <Facebook>페이스북으로 시작</Facebook>
-            </SocialLogin>
-            <Desc>
-              아직 회원이 아니세요? <GoSignUp>이메일로 회원가입</GoSignUp>
-            </Desc>
-          </UpBox>
-        </LoginBox>
-      </ModalBackground>
-    </Container>
+    <LoginBox>
+      <UpBox>
+        <XIcon
+          onClick={() => changeModalOpen(false)}
+          className="fas fa-times"
+        />
+        <Title>로그인</Title>
+        <Input
+          name="id"
+          type="text"
+          onClick={inputHandler}
+          placeholder="아이디"
+        />
+        <Input
+          onClick={inputHandler}
+          name="pw"
+          type="password"
+          placeholder="비밀번호"
+        />
+        <IdSelect>
+          <span>
+            <Label>
+              <input type="checkbox" name="idSave" />
+              아이디 저장
+            </Label>
+          </span>
+          <ReSettingPw>비밀번호 재설정</ReSettingPw>
+        </IdSelect>
+        <DefaultLogin onClick={() => loginFetch()}>로그인</DefaultLogin>
+        <SocialLogin>
+          <Kakao>카카오톡으로 시작</Kakao>
+          <Facebook>페이스북으로 시작</Facebook>
+        </SocialLogin>
+        <Desc>
+          아직 회원이 아니세요?{' '}
+          <GoSignUp onClick={() => changeType('signup')}>
+            이메일로 회원가입
+          </GoSignUp>
+        </Desc>
+      </UpBox>
+    </LoginBox>
   );
 }
 
 export default Login;
-
-const Container = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-`;
-
-const ModalBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  padding-top: 200px;
-  background-color: rgba(0, 0, 0, 0.705);
-  z-index: 3;
-`;
 
 const LoginBox = styled.div`
   max-width: 420px;
@@ -179,4 +167,5 @@ const Desc = styled.h1`
 
 const GoSignUp = styled.strong`
   color: #1564f9;
+  cursor: pointer;
 `;
