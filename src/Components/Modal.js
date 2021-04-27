@@ -21,23 +21,14 @@ export default function Modal({ changeModalOpen }) {
     ),
   };
 
-  return (
-    <Container>
-      <ModalBackground>{modalTypeTable[type]}</ModalBackground>
-    </Container>
-  );
+  return <Container>{modalTypeTable[type]}</Container>;
 }
 
 const Container = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
-`;
-
-const ModalBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  padding-top: 200px;
+  padding-top: 100px;
   background-color: rgba(0, 0, 0, 0.705);
   z-index: 3;
 `;
