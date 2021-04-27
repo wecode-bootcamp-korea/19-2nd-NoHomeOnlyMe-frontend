@@ -1,9 +1,55 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 export default function SignUpForm({ changeModalOpen }) {
-  const submitHandler = () => {
-    changeModalOpen(false);
+  const inputRef = useRef({ phoneFirst: '010' });
+
+  const submitBtnClick = () => {
+    const { name, password, passwordSecond } = inputRef.current;
+    if (!name || name.length < 3) {
+      alert('name is too short!!');
+      return;
+    }
+    if (password !== passwordSecond) {
+      alert('password is not same!!');
+      return;
+    }
+
+    fetchSignUp(inputRef.current);
+  };
+
+  const fetchSignUp = ({
+    name,
+    emailFirst,
+    emailSecond,
+    password,
+    phoneFirst,
+    phoneSecond,
+    phoneThird,
+  }) => {
+    fetch('http://serverip:8000', {
+      method: 'post',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        name: name,
+        email: emailFirst + '@' + emailSecond,
+        password: password,
+        phone: phoneFirst + phoneSecond + phoneThird,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.MESSAGE === 'SUCCESS') {
+          changeModalOpen(false);
+        }
+      });
+  };
+
+  const inputChange = e => {
+    const { name, value } = e.target;
+    inputRef.current = { ...inputRef.current, [name]: value };
   };
 
   return (
@@ -19,14 +65,14 @@ export default function SignUpForm({ changeModalOpen }) {
         <InputBox>
           <span>이름</span>
           <FormContainer>
-            <Input type="text" className="name" />
+            <Input type="text" name="name" onChange={inputChange} />
           </FormContainer>
         </InputBox>
         <InputBox>
           <span>이메일</span>
           <FormContainer>
-            <EmailFirst type="text" />@
-            <EmailSecond name="emailSecond">
+            <EmailFirst type="text" name="emailFirst" onChange={inputChange} />@
+            <EmailSecond name="emailSecond" onChange={inputChange}>
               <option value="">선택해주세요</option>
               <option value="naver.com">naver.com</option>
               <option value="daum.net">daum.net</option>
@@ -48,19 +94,23 @@ export default function SignUpForm({ changeModalOpen }) {
         <InputBox>
           <span>비밀번호</span>
           <FormContainer>
-            <Input type="text" name="password" />
+            <Input type="password" name="password" onChange={inputChange} />
           </FormContainer>
         </InputBox>
         <InputBox>
           <span>비밀번호확인</span>
           <FormContainer>
-            <Input type="text" name="passwordSecond" />
+            <Input
+              type="password"
+              name="passwordSecond"
+              onChange={inputChange}
+            />
           </FormContainer>
         </InputBox>
         <InputBox>
           <span>핸드폰 번호</span>
           <FormContainer>
-            <PhoneFirst name="phoneFirst">
+            <PhoneFirst name="phoneFirst" onChange={inputChange}>
               <option value="010">010</option>
               <option value="011">011</option>
               <option value="016">016</option>
@@ -69,9 +119,13 @@ export default function SignUpForm({ changeModalOpen }) {
               <option value="019">019</option>
             </PhoneFirst>
             -
-            <PhoneSecond type="text" name="phoneSecond" />
+            <PhoneSecond
+              type="text"
+              name="phoneSecond"
+              onChange={inputChange}
+            />
             -
-            <PhoneSecond type="text" name="phoneThird" />
+            <PhoneSecond type="text" name="phoneThird" onChange={inputChange} />
             <NumRequest>인증번호 요청</NumRequest>
           </FormContainer>
         </InputBox>
@@ -81,7 +135,7 @@ export default function SignUpForm({ changeModalOpen }) {
         </Message>
       </Main>
 
-      <Submit onClick={submitHandler}>이메일 회원가입</Submit>
+      <Submit onClick={submitBtnClick}>이메일 회원가입</Submit>
     </Container>
   );
 }
