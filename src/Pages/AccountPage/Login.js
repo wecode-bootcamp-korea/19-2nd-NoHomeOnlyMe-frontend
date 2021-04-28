@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function Login() {
+  const [form, setForm] = useState({ id: '', pw: '' });
+
+  const inputHandler = e => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const loginFetch = () => {
+    fetch('서버 URL', {
+      method: 'post',
+      body: JSON.stringify({
+        id: form.id,
+        password: form.pw,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
+  };
+
   return (
     <Container>
       <ModalBackground>
@@ -9,8 +30,18 @@ function Login() {
           <UpBox>
             <XIcon className="fas fa-times" />
             <Title>로그인</Title>
-            <Input type="text" placeholder="아이디" />
-            <Input type="text" placeholder="비밀번호" />
+            <Input
+              name="id"
+              type="text"
+              onClick={inputHandler}
+              placeholder="아이디"
+            />
+            <Input
+              onClick={inputHandler}
+              name="pw"
+              type="password"
+              placeholder="비밀번호"
+            />
             <IdSelect>
               <span>
                 <Label>
@@ -20,7 +51,7 @@ function Login() {
               </span>
               <ReSettingPw>비밀번호 재설정</ReSettingPw>
             </IdSelect>
-            <DefaultLogin>로그인</DefaultLogin>
+            <DefaultLogin onClick={() => loginFetch()}>로그인</DefaultLogin>
             <SocialLogin>
               <Kakao>카카오톡으로 시작</Kakao>
               <Facebook>페이스북으로 시작</Facebook>
@@ -116,12 +147,10 @@ const DefaultLogin = styled.button`
   outline: none;
   color: white;
   font-size: 16px;
+  cursor: pointer;
 `;
 
-const SocialLogin = styled.div`
-  color: #222;
-  font-size: 25px;
-`;
+const SocialLogin = styled.div``;
 
 const SocialBtn = styled.button`
   width: 170px;
@@ -129,6 +158,7 @@ const SocialBtn = styled.button`
   border: none;
   outline: none;
   font-size: 14px;
+  cursor: pointer;
 `;
 
 const Kakao = styled(SocialBtn)`
