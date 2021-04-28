@@ -1,11 +1,34 @@
-import React, { Component } from 'react'
+import DetailHeader from './components/DetailHeader';
+import DetailInfo from './components/DetailInfo';
+import DetailOtherRoom from './components/DetailOtherRoom';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-export default class Detail extends Component {
-  render() {
-    return (
-      <div>
+function Detail() {
+  const [data, setData] = useState([]);
 
-      </div>
-    )
-  }
+  useEffect(() => {
+    fetch('/data/Card.json')
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+      });
+  }, []);
+
+  return (
+    <Wrapper>
+      <DetailHeader />
+      <DetailInfo />
+      <DetailOtherRoom key={data.id} data={data} />
+    </Wrapper>
+  );
 }
+
+export default Detail;
+
+const Wrapper = styled.div`
+  width: 1180px;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid red;
+`;

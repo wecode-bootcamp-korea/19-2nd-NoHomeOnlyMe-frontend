@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 function SocialLogin() {
   const { Kakao } = window;
+
   const kakaoLogin = () => {
     Kakao.Auth.login({
       success: res => {
