@@ -7,6 +7,7 @@ import SocialLogin from './Pages/AccountPage/SocialLogin';
 import Modal from './Components/Modal';
 import Detail from './Pages/DetailPage/Detail';
 import PhotoSlide from './Pages/DetailPage/components/ PhotoSlide';
+import MapWrap from './Pages/MapPage/MapWrap';
 
 export default function Routes() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,14 +36,7 @@ export default function Routes() {
 
   return (
     <Router>
-      {isModalOpen && (
-        <Modal
-          changeModalOpen={changeModalOpen}
-          changeType={changeType}
-          type={type}
-          modalTypeTable={modalTypeTable}
-        />
-      )}
+      {isModalOpen && <Modal type={type} modalTypeTable={modalTypeTable} />}
       <button onClick={() => changeModalOpen(true)}>로그인 회원가입</button>
       <Switch>
         <Route exact path="/login" component={Login} />
@@ -57,6 +51,7 @@ export default function Routes() {
           )}
         />
         <Route exact path="/photoslide" component={PhotoSlide} />
+        <Route exact path="/map" component={MapWrap} />
       </Switch>
     </Router>
   );
