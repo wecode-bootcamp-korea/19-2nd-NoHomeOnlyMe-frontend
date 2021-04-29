@@ -1,0 +1,102 @@
+{
+  "RESULT": {
+    "home_id": 1,
+    "detail_header": {
+      "room_type": "아파트",
+      "name": "우남퍼스트빌",
+      "sale_type": "월세",
+      "deposit": 3000,
+      "monthly_pay": 53,
+      "exclusive_m2": 59.95,
+      "exclusive_pyeong": 18,
+      "month_total_cost": 63,
+      "user_name": "이서진"
+    },
+    "detail_info": {
+      "floor": 7,
+      "building_story": 20,
+      "exclusive_m2": 59.95,
+      "supply_m2": 87.94,
+      "exclusive_pyeong": 18,
+      "supply_pyeong": 27,
+      "heating_type": "지역난방",
+      "parking": true,
+      "pet": false,
+      "elevator": true,
+      "move_in_date": "2021-05-03",
+      "house_type": null
+    },
+    "detail_images": [
+      {
+        "sequence": 1,
+        "url": "https://d1774jszgerdmk.cloudfront.net/1024/65abc074-65a8-4025-8512-1713ecc84ccb"
+      },
+      {
+        "sequence": 2,
+        "url": "https://d1774jszgerdmk.cloudfront.net/1024/24bd53a4-c932-4e2f-85bd-bec48ac35e60"
+      },
+      {
+        "sequence": 3,
+        "url": "https://d1774jszgerdmk.cloudfront.net/1024/918d032e-ea34-4640-a5ec-cb01b8350269"
+      },
+      {
+        "sequence": 4,
+        "url": "https://d1774jszgerdmk.cloudfront.net/1024/865f2217-74a3-4df9-a693-2d133d897c4b"
+      },
+      {
+        "sequence": 5,
+        "url": "https://d1774jszgerdmk.cloudfront.net/1024/b6f9c2ee-b1dd-4916-8d33-eb4834649bd0"
+      }
+    ],
+    "map": {
+      "id": 1,
+      "location": "경기도 부천시 역곡동"
+    },
+    "other_rooms": [
+      {
+        "home_id": 1,
+        "image": "http://d1774jszgerdmk.cloudfront.net/512/5cec34bd-f70b-4dad-9989-26aa4803acae",
+        "room_type": "아파트",
+        "sale_type": "전세",
+        "deposit": "1억6000",
+        "monthly_pay": null,
+        "floor": 7,
+        "exclusive_m2": 59.95,
+        "maintenance_cost": 10
+      },
+      {
+        "home_id": 2,
+        "image": "http://d1774jszgerdmk.cloudfront.net/512/5cec34bd-f70b-4dad-9989-26aa4803acae",
+        "room_type": "아파트",
+        "sale_type": "전세",
+        "deposit": "1억6000",
+        "monthly_pay": null,
+        "floor": 7,
+        "exclusive_m2": 59.95,
+        "maintenance_cost": 10
+      },
+      {
+        "home_id": 3,
+        "image": "http://d1774jszgerdmk.cloudfront.net/512/5cec34bd-f70b-4dad-9989-26aa4803acae",
+        "room_type": "아파트",
+        "sale_type": "전세",
+        "deposit": "1억6000",
+        "monthly_pay": null,
+        "floor": 7,
+        "exclusive_m2": 59.95,
+        "maintenance_cost": 10
+      },
+      {
+        "home_id": 4,
+        "image": "http://d1774jszgerdmk.cloudfront.net/512/5cec34bd-f70b-4dad-9989-26aa4803acae",
+        "room_type": "아파트",
+        "sale_type": "전세",
+        "deposit": "1억6000",
+        "monthly_pay": null,
+        "floor": 7,
+        "exclusive_m2": 59.95,
+        "maintenance_cost": 10
+      }
+    ]
+  }
+}

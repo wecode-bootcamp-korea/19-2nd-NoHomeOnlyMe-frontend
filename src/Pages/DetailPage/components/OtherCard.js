@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
-function OtherCard({ data }) {
-  console.log(data);
+function OtherCard({ other }) {
   return (
     <Card>
-      <OtherImg src={data.image}></OtherImg>
+      <OtherImg src={other.image} />
       <Heart>
         <i className="xi-heart-o"></i>
       </Heart>
-      <RoomType>{data.roomtype}</RoomType>
-      <Price>{data.price}</Price>
-      <RoomInfo>{data.info}</RoomInfo>
-      <Question>{data.question}</Question>
+      <RoomType>{other.room_type}</RoomType>
+      <Price>{other.sale_type}</Price>
+      <Price>{other.deposit}</Price>
+      <Price>{other.monthly_pay}</Price>
+      <RoomInfo>
+        {other.floor}층 {other.exclusive_m2}㎡ {other.maintenance_cost}만
+      </RoomInfo>
+      <Question>{other.question}</Question>
     </Card>
   );
 }
@@ -50,14 +53,15 @@ const RoomType = styled.p`
 `;
 
 const Price = styled.p`
-  margin-bottom: 6px;
+  display: inline-block;
+  margin: 0px 3px 6px 0px;
   font-size: 20px;
   font-weight: bold;
 `;
 
 const RoomInfo = styled.p`
   margin-bottom: 2px;
-  color: #c2c2c2;
+  color: ${props => props.theme.infoCard};
   font-size: 14px;
 `;
 

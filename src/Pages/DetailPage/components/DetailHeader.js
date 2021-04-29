@@ -1,28 +1,42 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function DetailHeader() {
+function DetailHeader({ header }) {
+  const [click, setClick] = useState(true);
+
+  const handleClick = () => {
+    setClick(!click);
+  };
+
   return (
     <HeaderWrapper>
       <OneRoom>
-        <OneRomeTitle>원룸</OneRomeTitle>
-        <Monthly>월세 500/50</Monthly>
+        <OneRomeTitle>{header.room_type}</OneRomeTitle>
+        <Monthly>
+          {header.sale_type} {header.deposit}
+        </Monthly>
         <Price>만원</Price>
       </OneRoom>
       <Area>
         <AreaTitle>전용면적</AreaTitle>
-        <ExclusiveArea>22.64㎡</ExclusiveArea>
-        <Pyeong>
-          <Content>평</Content>
+        {click ? (
+          <ExclusiveArea>{header.exclusive_m2}㎡</ExclusiveArea>
+        ) : (
+          <ExclusiveArea>{header.exclusive_pyeong}평</ExclusiveArea>
+        )}
+
+        <Pyeong onClick={handleClick}>
+          <Content>{click ? '평' : '㎡'}</Content>
         </Pyeong>
       </Area>
       <Dwelling>
         <DwellingTitle>한달 예상 주거비</DwellingTitle>
-        <MonthPrice>55만 원 + α</MonthPrice>
+        <MonthPrice>{header.month_total_cost}만원 + α</MonthPrice>
       </Dwelling>
       <Info>
         <InfoBox>
           <InfoTitle>삼성공인중개사사무소</InfoTitle>
-          <InfoName>김다방</InfoName>
+          <InfoName>{header.user_name}</InfoName>
         </InfoBox>
         <Contact>연락처보기</Contact>
         <Phone>
@@ -39,20 +53,20 @@ const HeaderWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 1180px
+  width: 1180px;
   height: 107px;
   padding-top: 35px;
   margin-bottom: 35px;
 `;
 
 const OneRoom = styled.div`
-  width: 194px;
+  width: 220px;
   height: 72px;
 `;
 
 const OneRomeTitle = styled.p`
   margin: 5px 0px 5px 0px;
-  color: #858585;
+  color: ${props => props.theme.detailHeaderTitle};
   font-size: 14px;
 `;
 
@@ -69,7 +83,7 @@ const Price = styled.span`
   height: 15px;
   margin-top: 8px;
   margin-left: 3px;
-  color: #858585;
+  color: ${props => props.theme.detailHeaderTitle};
   font-size: 15px;
 `;
 
@@ -105,16 +119,16 @@ const Content = styled.span`
 const Dwelling = styled(Area)``;
 
 const DwellingTitle = styled(OneRomeTitle)`
-  color: #326cf9;
+  color: ${props => props.theme.detailHeaderMonth};
 `;
 
 const MonthPrice = styled(Monthly)`
-  color: #326cf9;
+  color: ${props => props.theme.detailHeaderMonth};
 `;
 
 const Info = styled(Area)`
   position: relative;
-  width: 550px;
+  width: 577px;
 `;
 
 const InfoBox = styled.div`
@@ -127,7 +141,6 @@ const InfoBox = styled.div`
 
 const InfoTitle = styled.p`
   height: 20px;
-  color: #222222;
   font-size: 14px;
   text-align: right;
   line-height: 20px;
@@ -135,7 +148,7 @@ const InfoTitle = styled.p`
 
 const InfoName = styled.p`
   height: 14px;
-  color: #888888;
+  color: ${props => props.theme.detailHeaderTitle};
   font-size: 14px;
   text-align: right;
 `;
