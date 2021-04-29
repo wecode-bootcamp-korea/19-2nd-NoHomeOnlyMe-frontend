@@ -6,8 +6,8 @@ function DetailOtherRoom({ data }) {
     <OtherRoom>
       <OtherRoomTitle>이 중개사무소의 다른 방</OtherRoomTitle>
       <OtherRoomCard>
-        {data.map(data => {
-          return <OtherCard key={data.id} data={data} />;
+        {data.map(other => {
+          return <OtherCard key={other.home_id} other={other} />;
         })}
       </OtherRoomCard>
     </OtherRoom>
