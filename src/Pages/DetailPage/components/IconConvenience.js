@@ -1,34 +1,34 @@
 import styled from 'styled-components';
 
-function IconConvenience() {
+function IconConvenience({ createOrClearMarkers }) {
   const data = [
     {
+      key: 'subway',
       className: 'xi-subway',
       title: '지하철역',
     },
     {
+      key: 'convenience_store',
       className: 'xi-convenience-store',
       title: '편의점',
     },
     {
-      className: 'xi-cafe',
-      title: '카페',
-    },
-    {
-      className: 'xi-bank',
-      title: '은행',
-    },
-    {
-      className: 'xi-home-o',
-      title: '관공서',
+      key: 'university',
+      className: 'xi-school',
+      title: '대학교',
     },
   ];
+
   return (
     <>
       {data.map((data, idx) => {
+        const { key, className } = data;
         return (
-          <Icon key={idx}>
-            <IconSubway className={data.className}></IconSubway>
+          <Icon
+            key={idx}
+            onClick={() => createOrClearMarkers({ key, className })}
+          >
+            <IconBox className={data.className}></IconBox>
             <IconTitle>{data.title}</IconTitle>
           </Icon>
         );
@@ -48,11 +48,11 @@ const Icon = styled.button`
   cursor: pointer;
 `;
 
-const IconSubway = styled.div`
+const IconBox = styled.div`
   padding: 2px;
   background-color: ${props => props.theme.mapIcon};
   color: ${props => props.theme.mapBackground};
-  font-size: 65px;
+  font-size: 70px;
   border: 0px;
   border-radius: 50%;
 `;
