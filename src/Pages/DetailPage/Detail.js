@@ -10,7 +10,7 @@ function Detail({ changeModalOpen, changeType }) {
   const [data, setData] = useState({});
 
   // useEffect(() => {
-  //   fetch('http://10.58.1.255:8000/room/1')
+  //   fetch('http://10.58.1.57:8000/room/1')
   //     .then(res => res.json())
   //     .then(data => {
   //       console.log(data);
@@ -37,7 +37,7 @@ function Detail({ changeModalOpen, changeType }) {
             changeModalOpen={changeModalOpen}
             changeType={changeType}
           />
-          <LocationMap />
+          <LocationMap map={data.RESULT.maps} />
           <DetailOtherRoom data={data.RESULT.other_rooms} />
         </>
       )}

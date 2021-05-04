@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export default function TabWrap({ clickMenu }) {
   return (
     <Tab>
-      <Convenience onClick={() => clickMenu(1)}>편의시설</Convenience>
-      <Safety onClick={() => clickMenu(2)}>안전시설</Safety>
-      <Education onClick={() => clickMenu(3)}>학군정보</Education>
+      <Convenience>주요시설</Convenience>
+      <Safety>안전시설</Safety>
+      <Education>학군정보</Education>
     </Tab>
   );
 }

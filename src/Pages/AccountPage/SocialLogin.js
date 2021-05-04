@@ -15,10 +15,6 @@ function SocialLogin() {
     });
   };
 
-  useEffect(() => {
-    console.log(window.Kakao);
-  }, []);
-
   return <Button onClick={kakaoLogin}>카카오톡으로 시작</Button>;
 }
 

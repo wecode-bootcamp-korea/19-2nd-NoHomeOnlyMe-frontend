@@ -28,29 +28,149 @@
     },
     "detail_images": [
       {
-        "sequence": 1,
         "url": "https://d1774jszgerdmk.cloudfront.net/1024/65abc074-65a8-4025-8512-1713ecc84ccb"
       },
       {
-        "sequence": 2,
         "url": "https://d1774jszgerdmk.cloudfront.net/1024/24bd53a4-c932-4e2f-85bd-bec48ac35e60"
       },
       {
-        "sequence": 3,
         "url": "https://d1774jszgerdmk.cloudfront.net/1024/918d032e-ea34-4640-a5ec-cb01b8350269"
       },
       {
-        "sequence": 4,
         "url": "https://d1774jszgerdmk.cloudfront.net/1024/865f2217-74a3-4df9-a693-2d133d897c4b"
       },
       {
-        "sequence": 5,
         "url": "https://d1774jszgerdmk.cloudfront.net/1024/b6f9c2ee-b1dd-4916-8d33-eb4834649bd0"
       }
     ],
-    "map": {
-      "id": 1,
-      "location": "경기도 부천시 역곡동"
+    "maps": {
+      "road_address": "경기도 부천시 역곡동",
+      "center": {
+        "latitude": 37.54283994,
+        "longitude": 126.93888614
+      },
+      "convenience_store": [
+        {
+          "latitude": 37.54283994,
+          "longitude": 126.93888614
+        },
+        {
+          "latitude": 37.5360698,
+          "longitude": 126.9548023
+        },
+        {
+          "latitude": 37.5618588,
+          "longitude": 126.9658444
+        },
+        {
+          "latitude": 37.55001335714286,
+          "longitude": 127.02124925714284
+        },
+        {
+          "latitude": 37.5618588,
+          "longitude": 126.9658444
+        },
+        {
+          "latitude": 37.55001335714286,
+          "longitude": 127.02124925714284
+        },
+        {
+          "latitude": 37.5225541,
+          "longitude": 126.89325195
+        },
+        {
+          "latitude": 37.5740566,
+          "longitude": 126.9669037
+        },
+        {
+          "latitude": 37.54758833333333,
+          "longitude": 127.02128673333334
+        },
+        {
+          "latitude": 37.5607987,
+          "longitude": 126.976439
+        },
+        {
+          "latitude": 37.477495781481494,
+          "longitude": 126.92494551712952
+        }
+      ],
+      "subway": [
+        {
+          "latitude": 37.530250499999994,
+          "longitude": 126.90721590000001
+        },
+        {
+          "latitude": 37.494290757142856,
+          "longitude": 127.14386211904763
+        },
+        {
+          "latitude": 37.5749837,
+          "longitude": 126.9711493
+        },
+        {
+          "latitude": 37.58688566666667,
+          "longitude": 127.04544071666668
+        },
+        {
+          "latitude": 37.523328125,
+          "longitude": 126.96498483750001
+        },
+        {
+          "latitude": 37.58327225,
+          "longitude": 126.96960565
+        },
+        {
+          "latitude": 37.5565816,
+          "longitude": 126.9798557
+        },
+        {
+          "latitude": 37.5638606,
+          "longitude": 126.9712938
+        },
+        {
+          "latitude": 37.5368070125,
+          "longitude": 126.9913829875
+        }
+      ],
+      "university": [
+        {
+          "latitude": 37.57036828260868,
+          "longitude": 126.81109043913042
+        },
+        {
+          "latitude": 37.57159795,
+          "longitude": 126.9910601
+        },
+        {
+          "latitude": 37.60738153333333,
+          "longitude": 127.0249281
+        },
+        {
+          "latitude": 37.5810333,
+          "longitude": 126.98714835000001
+        },
+        {
+          "latitude": 37.568054475000004,
+          "longitude": 126.84536765
+        },
+        {
+          "latitude": 37.5871014,
+          "longitude": 127.0094891
+        },
+        {
+          "latitude": 37.591396024999995,
+          "longitude": 127.0112385
+        },
+        {
+          "latitude": 37.573995350000004,
+          "longitude": 126.99900445
+        },
+        {
+          "latitude": 37.5642306,
+          "longitude": 126.99998903333334
+        }
+      ]
     },
     "other_rooms": [
       {
