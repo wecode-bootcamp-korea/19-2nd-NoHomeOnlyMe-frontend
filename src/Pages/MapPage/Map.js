@@ -74,23 +74,28 @@ export default function Map({
     if (markersRef.current.length) {
       deleteMarker();
     }
+    console.log(roomList, subwayList, univList);
 
     // name, type
-    createMarker(
-      roomList.map(el => {
-        return { ...el, type: 'room' };
-      })
-    );
-    createMarker(
-      subwayList.map(el => {
-        return { ...el, type: 'subway' };
-      })
-    );
-    createMarker(
-      univList.map(el => {
-        return { ...el, type: 'univ' };
-      })
-    );
+    if (roomList)
+      createMarker(
+        roomList.map(el => {
+          return { ...el, type: 'room' };
+        })
+      );
+    if (subwayList)
+      createMarker(
+        subwayList.map(el => {
+          return { ...el, type: 'subway' };
+        })
+      );
+
+    if (univList)
+      createMarker(
+        univList.map(el => {
+          return { ...el, type: 'univ' };
+        })
+      );
   }, [map, roomList, subwayList, univList]);
 
   return (

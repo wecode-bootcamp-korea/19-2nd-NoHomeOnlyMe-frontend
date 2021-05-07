@@ -5,23 +5,16 @@ import LocationMap from './components/LocationMap';
 import PhotoList from './components/PhotoList';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { API } from '../../Utils/config';
 
 function Detail({ changeModalOpen, changeType }) {
   const [data, setData] = useState({});
 
-  // useEffect(() => {
-  //   fetch('http://10.58.1.57:8000/room/1')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data);
-  //       setData(data);
-  //     });
-  // }, []);
-
   useEffect(() => {
-    fetch('data/Detail.json')
+    fetch(`${API}/room/${1}`)
       .then(res => res.json())
       .then(data => {
+        console.log(data.RESULT);
         setData(data);
       });
   }, []);

@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { API } from '../../Utils/config';
+
 import styled from 'styled-components';
 
 export default function MapList({ roomIdList }) {
+  const history = useHistory();
+
   const imageList = [
     'http://d1774jszgerdmk.cloudfront.net/512/722531b5-ad51-43ed-8e75-414c2b98f98a',
     'http://d1774jszgerdmk.cloudfront.net/512/190be9c0-6a59-43b0-b9dd-126e6fa9b78d',
@@ -23,6 +28,10 @@ export default function MapList({ roomIdList }) {
     return imageList[Math.round(Math.random() * (imageList.length - 1))];
   };
 
+  const goDetail = id => {
+    history.push(`/detail/${id}`);
+  };
+
   return (
     <Container>
       <div className="roomListHeader"></div>
@@ -38,7 +47,7 @@ export default function MapList({ roomIdList }) {
           } = room;
 
           return (
-            <Room key={id}>
+            <Room key={id} onClick={() => goDetail(id)}>
               <img src={makeImage()} alt="room" />
               <RoomInfo>
                 <h1>

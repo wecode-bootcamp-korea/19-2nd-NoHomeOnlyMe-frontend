@@ -1,13 +1,14 @@
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-function SocialLogin() {
+import { API } from '../../Utils/config';
+
+function SocialLogin({ changeModalOpen }) {
   const { Kakao } = window;
   const history = useHistory();
   const kakaoLogin = () => {
     Kakao.Auth.login({
       success: res => {
-        console.log(res);
-        fetch('http://10.58.6.189:8000/user/signin', {
+        fetch(`${API}/user/signin`, {
           method: 'POST',
           body: JSON.stringify({
             access_token: res.access_token,
@@ -19,6 +20,7 @@ function SocialLogin() {
             if (res.access_token) {
               alert('나만방없 에 오신걸 환영합니다!');
               history.push('/map');
+              changeModalOpen(false);
             }
           });
       },
@@ -31,10 +33,14 @@ function SocialLogin() {
 }
 export default SocialLogin;
 const Button = styled.button`
+  display: inline-block;
   width: 170px;
   height: 50px;
-  color: rgb(34, 34, 34);
-  background-color: rgb(247, 229, 6);
+  color: #222;
+  background-color: #f7e506;
+  border: none;
+  outline: none;
   font-size: 14px;
-  border: 0px;
+  cursor: pointer;
+  margin-right: 10px;
 `;

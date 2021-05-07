@@ -58,18 +58,15 @@ const HeaderWrapper = styled.div`
   padding-top: 35px;
   margin-bottom: 35px;
 `;
-
 const OneRoom = styled.div`
   width: 220px;
   height: 72px;
 `;
-
 const OneRomeTitle = styled.p`
   margin: 5px 0px 5px 0px;
   color: ${props => props.theme.detailHeaderTitle};
   font-size: 14px;
 `;
-
 const Monthly = styled.h1`
   display: inline-block;
   height: 45px;
@@ -77,7 +74,6 @@ const Monthly = styled.h1`
   font-size: 30px;
   font-weight: bold;
 `;
-
 const Price = styled.span`
   width: 27px;
   height: 15px;
@@ -86,7 +82,6 @@ const Price = styled.span`
   color: ${props => props.theme.detailHeaderTitle};
   font-size: 15px;
 `;
-
 const Area = styled.div`
   position: relative;
   width: 175px;
@@ -95,11 +90,8 @@ const Area = styled.div`
   margin-left: 28px;
   border-left: 1px solid #e7e7e7;
 `;
-
 const AreaTitle = styled(OneRomeTitle)``;
-
 const ExclusiveArea = styled(Monthly)``;
-
 const Pyeong = styled.button`
   position: absolute;
   width: 35px;
@@ -110,27 +102,25 @@ const Pyeong = styled.button`
   background-color: #fff;
   top: 33px;
 `;
-
 const Content = styled.span`
   font-size: 11px;
   text-align: center;
 `;
-
-const Dwelling = styled(Area)``;
-
+const Dwelling = styled(Area)`
+  margin-right: 20px;
+`;
 const DwellingTitle = styled(OneRomeTitle)`
   color: ${props => props.theme.detailHeaderMonth};
 `;
-
 const MonthPrice = styled(Monthly)`
+  width: 185px;
+  margin-right: 200px;
   color: ${props => props.theme.detailHeaderMonth};
 `;
-
 const Info = styled(Area)`
   position: relative;
-  width: 577px;
+  width: 625px;
 `;
-
 const InfoBox = styled.div`
   position: absolute;
   width: 128px;
@@ -138,35 +128,39 @@ const InfoBox = styled.div`
   top: 25px;
   left: 300px;
 `;
-
 const InfoTitle = styled.p`
+  width: 146px;
   height: 20px;
+  position: relative;
+  left: -18px;
   font-size: 14px;
   text-align: right;
   line-height: 20px;
 `;
-
 const InfoName = styled.p`
   height: 14px;
   color: ${props => props.theme.detailHeaderTitle};
   font-size: 14px;
   text-align: right;
 `;
-
 const Contact = styled.button`
   position: absolute;
   width: 114px;
   height: 36px;
-  padding: 11px 0px 8px 10px;
+  padding: 11px 0px 8px 15px;
   border: 1px solid #e7e7e7;
   border-radius: 19px;
   background-color: #fff;
+  line-height: 16px;
   top: 25px;
   left: 435px;
 `;
-
 const Phone = styled.span`
   position: absolute;
   top: 36px;
   left: 451px;
+
+  & > i {
+    margin-left: -5px;
+  }
 `;

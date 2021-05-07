@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SocialLogin from './SocialLogin';
 import styled from 'styled-components';
 
 function Login({ changeType, changeModalOpen }) {
@@ -18,9 +19,7 @@ function Login({ changeType, changeModalOpen }) {
       }),
     })
       .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
+      .then(data => {});
   };
 
   return (
@@ -53,10 +52,10 @@ function Login({ changeType, changeModalOpen }) {
           <ReSettingPw>비밀번호 재설정</ReSettingPw>
         </IdSelect>
         <DefaultLogin onClick={() => loginFetch()}>로그인</DefaultLogin>
-        <SocialLogin>
-          <Kakao>카카오톡으로 시작</Kakao>
+        <SocialBox>
+          <SocialLogin changeModalOpen={changeModalOpen}></SocialLogin>
           <Facebook>페이스북으로 시작</Facebook>
-        </SocialLogin>
+        </SocialBox>
         <Desc>
           아직 회원이 아니세요?{' '}
           <GoSignUp onClick={() => changeType('signup')}>
@@ -76,6 +75,10 @@ const LoginBox = styled.div`
   padding: 10px 10px 40px;
   background-color: white;
   z-index: 5;
+`;
+
+const SocialBox = styled.div`
+  display: flex;
 `;
 
 const UpBox = styled.div`
@@ -138,8 +141,6 @@ const DefaultLogin = styled.button`
   cursor: pointer;
 `;
 
-const SocialLogin = styled.div``;
-
 const SocialBtn = styled.button`
   width: 170px;
   height: 50px;
@@ -151,12 +152,12 @@ const SocialBtn = styled.button`
 
 const Kakao = styled(SocialBtn)`
   margin-right: 10px;
-  background-color: #f7e506;
   color: #222;
 `;
 
 const Facebook = styled(SocialBtn)`
   background-color: #354a87;
+  display: inline-block;
   color: white;
 `;
 

@@ -20,7 +20,7 @@ const Tab = styled.div`
 `;
 
 const Convenience = styled.button`
-  width: 120px;
+  width: 130px;
   height: 55px;
   padding: 0px 30px 0px 30px;
   margin-top: 2px;
