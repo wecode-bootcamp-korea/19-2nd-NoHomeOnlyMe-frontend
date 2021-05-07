@@ -10,7 +10,7 @@ import PhotoSlide from './Pages/DetailPage/components/ PhotoSlide';
 import MapWrap from './Pages/MapPage/MapWrap';
 
 export default function Routes() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const [type, setType] = useState('login');
 
   const changeType = type => {
@@ -36,8 +36,9 @@ export default function Routes() {
 
   return (
     <Router>
-      {isModalOpen && <Modal type={type} modalTypeTable={modalTypeTable} />}
-      <button onClick={() => changeModalOpen(true)}>로그인 회원가입</button>
+      {isModalOpen && !localStorage.getItem('Kakao_token') && (
+        <Modal type={type} modalTypeTable={modalTypeTable} />
+      )}
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
@@ -45,7 +46,7 @@ export default function Routes() {
         <Route exact path="/socialLogin" component={SocialLogin} />
         <Route
           exact
-          path="/detail"
+          path="/detail/:id"
           render={() => (
             <Detail changeModalOpen={changeModalOpen} changeType={changeType} />
           )}

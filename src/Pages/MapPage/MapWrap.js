@@ -46,6 +46,16 @@ function MapWrap() {
       });
   };
 
+  const getMapDataSearch = str => {
+    fetch(
+      `${API}/search/map?center=${center.latitude},${center.longitude}&zoom=${zoom}&search=${str}`
+    )
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+      });
+  };
+
   const getMapDataExclusiveM2 = () => {
     fetch(
       `${API}/search/map?center=${center.latitude},${center.longitude}&zoom=${zoom}&exclusive_m2=${exclusiveM2.min},${exclusiveM2.max}`
@@ -88,6 +98,7 @@ function MapWrap() {
           getMapData={getMapData}
           setSearch={setSearch}
           setFilterBox={setFilterBox}
+          getMapDataSearch={getMapDataSearch}
         />
         <MapFilter
           setMaintenanceCost={setMaintenanceCost}
@@ -115,8 +126,6 @@ function MapWrap() {
 }
 export default MapWrap;
 
-let markerRefList = [];
-
 const MapHeader = styled.div`
   display: flex;
 `;
@@ -124,36 +133,3 @@ const MapHeader = styled.div`
 const MapContent = styled.div`
   display: flex;
 `;
-// useEffect(() => {
-//   fetch(`${FETCH_API}/search/map`)
-//     .then(res => res.json())
-//     .then(data => {
-//       console.log(data);
-//       setData(data);
-//     });
-// }, []);
-
-// const getRoomIdList = roomIdList => {
-//   fetch(`${API}/search/room?room_id=${roomIdList}`)
-//     .then(res => res.json())
-//     .then(data => {
-//       // console.log('roomId List : ');
-//       console.log(data.results);
-//       setRoomIdList(data.results);
-//     });
-// };
-
-// const getType = index => {
-//   if (index < roomList.length) return 'room';
-//   else if (
-//     index >= roomList.length &&
-//     index < subwayList.length + roomList.length
-//   )
-//     return 'subway';
-//   else return 'univ';
-// };
-
-// const getCount = index => {
-//   if (index < roomList.length) return roomList[index].room_id.length;
-//   return null;
-// };

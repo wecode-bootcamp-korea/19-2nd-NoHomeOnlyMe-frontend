@@ -2,11 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { debounce } from 'lodash';
 
-export default function MapSearch({ setFilterBox, setSearch, getMapData }) {
+export default function MapSearch({
+  setFilterBox,
+  setSearch,
+  getMapData,
+  getMapDataSearch,
+}) {
   const onKeyPressHandler = e => {
-    delayedQueryCall(e.target.value);
+    // delayedQueryCall(e.target.value);
     if (e.code === 'Enter') {
-      getMapData();
+      getMapDataSearch(e.target.value);
+      // getMapData();
     }
   };
 
